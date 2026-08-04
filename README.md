@@ -40,7 +40,7 @@
 
 ### Способ 1: Готовый EXE (рекомендуется)
 
-1. Перейдите в раздел [Releases](https://github.com/your-username/femboyapp/releases)
+1. Перейдите в раздел **[Releases](https://github.com/femboychiklove/femboychiklove.github.io/releases)** (это прямая ссылка на ваши релизы)
 2. Скачайте `FemboyApp.exe`
 3. Запустите файл
 
@@ -48,11 +48,11 @@
 
 ```bash
 # Клонируйте репозиторий
-git clone https://github.com/your-username/femboyapp.git
-cd femboyapp
+git clone https://github.com/femboychiklove/femboychiklove.github.io.git
+cd femboychiklove.github.io
 
 # Установите зависимости
 pip install -r requirements.txt
 
 # Запустите приложение
-python main.py"# femboychiklove.github.io" 
+python main.py
