@@ -1,0 +1,10 @@
+{
+  "notifications": true,
+  "dark_theme": true,
+  "private_profile": false,
+  "show_online": true,
+  "autoplay": true,
+  "sound_messages": true,
+  "save_photos": false,
+  "language": "Русский"
+}

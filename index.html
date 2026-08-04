@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FemboyApp</title>
+    <!-- ════════════════════════════════════════════════ -->
+    <!-- 🖼️ ФАВИКОН (иконка в углу вкладки)             -->
+    <!-- ════════════════════════════════════════════════ -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Главный контейнер -->
+    <div id="app">
+        <!-- Шапка (видна только после входа) -->
+        <header class="header" id="mainHeader" style="display: none;">
+            <nav class="nav container">
+                <a href="#" class="logo">🌸 FemboyApp</a>
+                <ul class="nav-list">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#download">Скачать</a></li>
+                    <li><a href="#donate">💝 Поддержать</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <span class="user-greeting" id="userGreeting">👤 Привет, </span>
+                    <button class="btn btn-logout" id="logoutBtn">Выйти</button>
+                </div>
+                <button class="burger" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- СТРАНИЦА РЕГИСТРАЦИИ -->
+        <div class="auth-page" id="registerPage">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <div class="auth-logo">🌸</div>
+                    <h1>FemboyApp</h1>
+                    <p class="auth-subtitle">Создайте аккаунт чтобы продолжить</p>
+                    
+                    <form id="registerForm" class="auth-form">
+                        <div class="form-group">
+                            <label>👤 Имя пользователя</label>
+                            <input type="text" id="regName" placeholder="Введите имя" required />
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>📧 Email</label>
+                            <input type="email" id="regEmail" placeholder="Введите email" required />
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>🔒 Пароль</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="regPassword" placeholder="Минимум 6 символов" required />
+                                <button type="button" class="toggle-password">👁️</button>
+                            </div>
+                            <span class="error-message"></span>
+                            <div class="password-strength">
+                                <div class="strength-bar"></div>
+                                <span class="strength-text">Сложность пароля</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>✅ Подтвердите пароль</label>
+                            <input type="password" id="regConfirm" placeholder="Повторите пароль" required />
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="regAgree" required />
+                            <label for="regAgree">Я согласен с <a href="#">условиями</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Создать аккаунт</button>
+                        <p class="auth-footer">
+                            Уже есть аккаунт? <a href="#" id="switchToLogin">Войти</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- СТРАНИЦА ВХОДА -->
+        <div class="auth-page" id="loginPage" style="display: none;">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <div class="auth-logo">🌸</div>
+                    <h1>FemboyApp</h1>
+                    <p class="auth-subtitle">Войдите в свой аккаунт</p>
+                    
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label>📧 Email</label>
+                            <input type="email" id="loginEmail" placeholder="Введите email" required />
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>🔒 Пароль</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="loginPassword" placeholder="Введите пароль" required />
+                                <button type="button" class="toggle-password">👁️</button>
+                            </div>
+                            <span class="error-message"></span>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Войти</button>
+                        <p class="auth-footer">
+                            Нет аккаунта? <a href="#" id="switchToRegister">Зарегистрироваться</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ (доступен только после входа) -->
+        <div id="mainContent" style="display: none;">
+            <!-- Герой -->
+            <section class="hero" id="home">
+                <div class="hero-content container">
+                    <h1 class="hero-title">Добро пожаловать в <span>FemboyApp</span></h1>
+                    <p class="hero-subtitle">
+                        Современный дизайн, интерактивные анимации и забота о каждой детали.
+                    </p>
+                    <a href="#download" class="btn btn-primary">Скачать приложение</a>
+                </div>
+                <div class="hero-bg"></div>
+            </section>
+
+            <!-- Секция скачивания -->
+            <section class="download-section container" id="download">
+                <h2 class="section-title">📦 Скачать приложение</h2>
+                <p class="section-subtitle">Выберите версию для вашей платформы</p>
+                
+                <div class="download-grid">
+                    <div class="download-card">
+                        <div class="download-icon">🪟</div>
+                        <h3>Windows</h3>
+                        <p>Версия 2.0.1 (64-бит)</p>
+                        <div class="download-actions">
+                            <button class="btn btn-download" data-file="FemboyApp.exe">
+                                Скачать .exe
+                            </button>
+                            <button class="btn btn-code" data-file="FemboyApp.py">
+                                Показать код .py
+                            </button>
+                        </div>
+                        <div class="code-preview" style="display:none;">
+                            <pre><code># FemboyApp.py
+# Демо-версия приложения
+
+import tkinter as tk
+from tkinter import ttk
+
+class FemboyApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Femboy App v2.0")
+        self.root.geometry("400x300")
+        
+        label = ttk.Label(root, text="🌸 Добро пожаловать!", font=("Arial", 16))
+        label.pack(pady=20)
+        
+        btn = ttk.Button(root, text="Нажми меня", command=self.say_hello)
+        btn.pack(pady=10)
+    
+    def say_hello(self):
+        print("Привет из FemboyApp!")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = FemboyApp(root)
+    root.mainloop()</code></pre>
+                            <button class="btn btn-close-code">Закрыть код</button>
+                        </div>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="download-icon">🍎</div>
+                        <h3>macOS</h3>
+                        <p>Версия 2.0.1 (Universal)</p>
+                        <button class="btn btn-download" disabled>Скоро</button>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="download-icon">🐧</div>
+                        <h3>Linux</h3>
+                        <p>Версия 2.0.1 (AppImage)</p>
+                        <button class="btn btn-download" disabled>Скоро</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- НОВЫЕ КАРТОЧКИ -->
+            <section class="cards container" id="services">
+                <div class="card" data-delay="0">
+                    <div class="card-icon">❤️</div>
+                    <h3>С любовью</h3>
+                    <p>Проект был сделан с любовью</p>
+                </div>
+                <div class="card" data-delay="100">
+                    <div class="card-icon">🌸</div>
+                    <h3>Для фембоев</h3>
+                    <p>Проект был сделан для фембоев!</p>
+                </div>
+                <div class="card" data-delay="200">
+                    <div class="card-icon">💖</div>
+                    <h3>С заботой</h3>
+                    <p>Каждая деталь создана с душой для вас</p>
+                </div>
+            </section>
+
+            <!-- ════════════════════════════════════════ -->
+            <!-- 💝 ДОНАТ                                    -->
+            <!-- ════════════════════════════════════════ -->
+            <section class="donate-section container" id="donate">
+                <h2 class="section-title">💝 Поддержать проект</h2>
+                <p class="section-subtitle">Если вам нравится FemboyApp, вы можете поддержать нас финансово</p>
+                
+                <div class="donate-grid">
+                    <!-- Карта -->
+                    <div class="donate-card">
+                        <div class="donate-card-icon">💳</div>
+                        <h3>Перевод на карту</h3>
+                        <p class="donate-card-subtitle">Быстрый перевод через СБП</p>
+                        
+                        <div class="donate-card-number" onclick="copyCardNumber()">
+                            <span>2204 3212 1218 7579</span>
+                            <button class="btn btn-copy" onclick="event.stopPropagation(); copyCardNumber();">
+                                📋 Копировать
+                            </button>
+                        </div>
+                        <p class="donate-hint">Нажмите на номер, чтобы скопировать</p>
+                        
+                        <div class="donate-bank-info">
+                            <div class="bank-item">
+                                <span class="bank-label">🏦 Банк:</span>
+                                <span class="bank-value">Озон Банк</span>
+                            </div>
+                            <div class="bank-item">
+                                <span class="bank-label">👤 Получатель:</span>
+                                <span class="bank-value">Иванов Иван Иванович</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- СБП -->
+                    <div class="donate-card">
+                        <div class="donate-card-icon">📱</div>
+                        <h3>СБП по номеру телефона</h3>
+                        <p class="donate-card-subtitle">Перевод через Систему быстрых платежей</p>
+                        
+                        <div class="donate-card-number" onclick="copyPhoneNumber()">
+                            <span>8 (904) 244-14-59</span>
+                            <button class="btn btn-copy" onclick="event.stopPropagation(); copyPhoneNumber();">
+                                📋 Копировать
+                            </button>
+                        </div>
+                        <p class="donate-hint">Нажмите на номер, чтобы скопировать</p>
+                        
+                        <div class="donate-bank-info">
+                            <div class="bank-item">
+                                <span class="bank-label">📱 Оператор:</span>
+                                <span class="bank-value">Любой банк</span>
+                            </div>
+                            <div class="bank-item">
+                                <span class="bank-label">⚡ Комиссия:</span>
+                                <span class="bank-value">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QR-код -->
+                    <div class="donate-card">
+                        <div class="donate-card-icon">📲</div>
+                        <h3>QR-код для оплаты</h3>
+                        <p class="donate-card-subtitle">Отсканируйте камерой телефона</p>
+                        
+                        <div class="qr-placeholder">
+                            <div class="qr-icon">📱</div>
+                            <p class="qr-text">QR-код для СБП</p>
+                            <div class="qr-hint">Сканируйте в приложении банка</div>
+                        </div>
+                        
+                        <div class="donate-security-badge">
+                            <span>🔒</span> Безопасный перевод через СБП
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дополнительная информация -->
+                <div class="donate-footer-info">
+                    <div class="donate-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalAmount">0 ₽</span>
+                            <span class="stat-label">Собрано</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="donorsCount">0</span>
+                            <span class="stat-label">Поддержали</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">❤️</span>
+                            <span class="stat-label">Спасибо!</span>
+                        </div>
+                    </div>
+                    <p class="donate-footer-text">
+                        💕 Будьте первым, кто поддержит проект! Каждый донат помогает нам становиться лучше!
+                    </p>
+                </div>
+            </section>
+
+            <!-- ════════════════════════════════════════ -->
+            <!-- 📬 КОНТАКТЫ (ИСПРАВЛЕННЫЕ)                -->
+            <!-- ════════════════════════════════════════ -->
+            <section class="contact-section container" id="contact">
+                <h2 class="section-title">📬 Контакты</h2>
+                <p class="section-subtitle">Свяжитесь с нами любым удобным способом</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <h3>Telegram</h3>
+                        <p>Наш канал и поддержка</p>
+                        <a href="https://t.me/FemBoyLoverOwO" target="_blank" class="contact-link">
+                            @FemBoyLoverOwO
+                        </a>
+                        <button class="btn btn-contact" onclick="window.open('https://t.me/FemBoyLoverOwO', '_blank')">
+                            Написать в Telegram
+                        </button>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <h3>Email</h3>
+                        <p>Для деловых предложений</p>
+                        <a href="mailto:femboyloversupport@gmail.com" class="contact-link">
+                            femboyloversupport@gmail.com
+                        </a>
+                        <button class="btn btn-contact" onclick="window.location.href='mailto:femboyloversupport@gmail.com'">
+                            Написать на почту
+                        </button>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">🌐</div>
+                        <h3>Социальные сети</h3>
+                        <p>Следите за нами</p>
+                        <div class="social-links">
+                            <a href="https://t.me/FemBoyLoverOwO" target="_blank" class="social-icon" title="Telegram">📱</a>
+                            <a href="mailto:femboyloversupport@gmail.com" class="social-icon" title="Email">✉️</a>
+                            <a href="#" class="social-icon" title="Twitter">🐦</a>
+                            <a href="#" class="social-icon" title="Instagram">📷</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ФУТЕР (ИСПРАВЛЕННЫЙ) -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <p class="footer-logo">🌸 FemboyApp</p>
+                        <p>© 2026 FemboyApp. Сделано с любовью ❤️</p>
+                        <div class="footer-contacts">
+                            <a href="https://t.me/FemBoyLoverOwO" target="_blank">📱 @FemBoyLoverOwO</a>
+                            <a href="mailto:femboyloversupport@gmail.com">✉️ femboyloversupport@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Toast уведомление -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1124 @@
+/* ——— Сброс и базовые стили ——— */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #fbfaff;
+    color: #1a1a2e;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ——— Страницы авторизации ——— */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fbfaff 0%, #e8e0f0 100%);
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 440px;
+}
+
+.auth-box {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 48px 40px;
+    border-radius: 32px;
+    box-shadow: 0 24px 64px rgba(108, 92, 231, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-logo {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.auth-box h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6c5ce7, #fd79a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #636e72;
+    margin-bottom: 32px;
+    font-size: 0.95rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #2d3436;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    padding: 12px 16px;
+    border: 2px solid #dfe6e9;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+    background: #f8f9fa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
+    background: #fff;
+}
+
+.form-group input.error {
+    border-color: #e17055;
+}
+
+.form-group input.error:focus {
+    box-shadow: 0 0 0 4px rgba(225, 112, 85, 0.1);
+}
+
+.form-group input.success {
+    border-color: #00b894;
+}
+
+.error-message {
+    font-size: 0.8rem;
+    color: #e17055;
+    min-height: 18px;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 4px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.toggle-password:hover {
+    opacity: 1;
+}
+
+.password-strength {
+    margin-top: 4px;
+}
+
+.strength-bar {
+    height: 4px;
+    border-radius: 4px;
+    background: #dfe6e9;
+    transition: all 0.3s ease;
+    width: 0%;
+}
+
+.strength-text {
+    font-size: 0.8rem;
+    color: #b2bec3;
+    transition: color 0.3s ease;
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #6c5ce7;
+}
+
+.checkbox-group label {
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.checkbox-group a {
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(108, 92, 231, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(108, 92, 231, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.05rem;
+    margin-top: 4px;
+}
+
+.btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.auth-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #636e72;
+}
+
+.auth-footer a {
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ——— Шапка (после входа) ——— */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    padding: 16px 0;
+    transition: box-shadow 0.3s ease;
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #1a1a2e;
+    background: linear-gradient(135deg, #6c5ce7, #fd79a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-list {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #1a1a2e;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+    transition: width 0.3s ease;
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-greeting {
+    font-weight: 500;
+    color: #2d3436;
+}
+
+.btn-logout {
+    background: #e17055;
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 20px rgba(225, 112, 85, 0.3);
+}
+
+.btn-logout:hover {
+    box-shadow: 0 8px 32px rgba(225, 112, 85, 0.4);
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.burger span {
+    width: 28px;
+    height: 3px;
+    background: #1a1a2e;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+/* ——— Герой ——— */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    background: linear-gradient(135deg, #6c5ce7, #fd79a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #636e72;
+    margin-bottom: 32px;
+    max-width: 500px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #6c5ce7, #fd79a8);
+    box-shadow: 0 4px 20px rgba(108, 92, 231, 0.3);
+}
+
+.hero-bg {
+    position: absolute;
+    right: -10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* ——— Секция скачивания ——— */
+.download-section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #636e72;
+    margin-bottom: 48px;
+}
+
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.download-card {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.download-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.download-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.download-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+}
+
+.download-card p {
+    color: #636e72;
+    margin-bottom: 20px;
+}
+
+.download-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-download {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    box-shadow: 0 4px 20px rgba(0, 184, 148, 0.3);
+}
+
+.btn-download:hover {
+    box-shadow: 0 8px 32px rgba(0, 184, 148, 0.4);
+}
+
+.btn-download:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-code {
+    background: linear-gradient(135deg, #2d3436, #636e72);
+    box-shadow: 0 4px 20px rgba(45, 52, 54, 0.3);
+    font-size: 0.9rem;
+    padding: 10px 20px;
+}
+
+.btn-code:hover {
+    box-shadow: 0 8px 32px rgba(45, 52, 54, 0.4);
+}
+
+.btn-close-code {
+    background: #e17055;
+    box-shadow: 0 4px 20px rgba(225, 112, 85, 0.3);
+    margin-top: 12px;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+}
+
+.code-preview {
+    margin-top: 16px;
+    padding: 16px;
+    background: #1a1a2e;
+    border-radius: 12px;
+    text-align: left;
+    animation: fadeIn 0.4s ease;
+}
+
+.code-preview pre {
+    color: #dfe6e9;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ——— Карточки ——— */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 60px 0 80px;
+}
+
+.card {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #636e72;
+    font-size: 1rem;
+}
+
+/* ============================================================
+   ДОНАТ
+   ============================================================ */
+
+.donate-section {
+    padding: 80px 0 60px;
+    background: linear-gradient(180deg, #f0ecf8 0%, #fbfaff 100%);
+}
+
+.donate-section .section-title {
+    margin-bottom: 8px;
+}
+
+.donate-section .section-subtitle {
+    text-align: center;
+    color: #636e72;
+    margin-bottom: 48px;
+}
+
+.donate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.donate-card {
+    background: #fff;
+    padding: 32px 28px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(108, 92, 231, 0.08);
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.donate-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(108, 92, 231, 0.12);
+    border-color: rgba(108, 92, 231, 0.2);
+}
+
+.donate-card .donate-security-badge {
+    margin-top: auto;
+}
+
+.donate-card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.donate-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+    color: #1a1a2e;
+}
+
+.donate-card-subtitle {
+    color: #636e72;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.donate-card-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #f8f9fa;
+    padding: 14px 18px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px dashed #dfe6e9;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.donate-card-number:hover {
+    background: #f0ecf8;
+    border-color: #6c5ce7;
+}
+
+.donate-card-number span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+    user-select: all;
+}
+
+.btn-copy {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(108, 92, 231, 0.25);
+}
+
+.btn-copy:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(108, 92, 231, 0.35);
+}
+
+.btn-copy.copied {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+}
+
+.donate-hint {
+    font-size: 0.8rem;
+    color: #b2bec3;
+    margin-bottom: 16px;
+}
+
+.donate-bank-info {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.bank-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.bank-item:hover {
+    color: #6c5ce7;
+}
+
+.bank-label {
+    color: #636e72;
+    font-weight: 500;
+}
+
+.bank-value {
+    color: #1a1a2e;
+    font-weight: 600;
+}
+
+.donate-security-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #f0ecf8;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #6c5ce7;
+    font-weight: 500;
+    margin-top: 16px;
+}
+
+/* QR-код */
+.qr-placeholder {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 16px 0;
+    border: 2px dashed #dfe6e9;
+    transition: all 0.3s ease;
+}
+
+.qr-placeholder:hover {
+    border-color: #6c5ce7;
+    background: #f0ecf8;
+}
+
+.qr-icon {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.qr-text {
+    font-size: 0.9rem;
+    color: #636e72;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.qr-hint {
+    font-size: 0.8rem;
+    color: #b2bec3;
+    text-align: center;
+}
+
+/* Донат - статистика */
+.donate-footer-info {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 32px 28px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(108, 92, 231, 0.08);
+}
+
+.donate-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #6c5ce7;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #636e72;
+}
+
+.donate-footer-text {
+    text-align: center;
+    color: #636e72;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* ============================================================
+   КОНТАКТЫ
+   ============================================================ */
+
+.contact-section {
+    padding: 80px 0 60px;
+    background: #fbfaff;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-card {
+    background: #fff;
+    padding: 36px 28px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(108, 92, 231, 0.08);
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(108, 92, 231, 0.12);
+    border-color: rgba(108, 92, 231, 0.2);
+}
+
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.contact-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+    color: #1a1a2e;
+}
+
+.contact-card p {
+    color: #636e72;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.contact-link {
+    display: block;
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 8px 0;
+    margin-bottom: 16px;
+    transition: color 0.3s ease;
+    word-break: break-all;
+    cursor: pointer;
+}
+
+.contact-link:hover {
+    color: #fd79a8;
+}
+
+.btn-contact {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    box-shadow: 0 4px 20px rgba(108, 92, 231, 0.25);
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+.btn-contact:hover {
+    box-shadow: 0 8px 32px rgba(108, 92, 231, 0.35);
+}
+
+/* Социальные сети */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 24px rgba(108, 92, 231, 0.3);
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 16px 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10000;
+    max-width: 400px;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast.success {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+}
+
+.toast.error {
+    background: linear-gradient(135deg, #e17055, #d63031);
+}
+
+/* ============================================================
+   ФУТЕР
+   ============================================================ */
+
+.footer {
+    background: #1a1a2e;
+    color: #b2bec3;
+    padding: 40px 0;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #6c5ce7, #fd79a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.footer p {
+    margin-bottom: 12px;
+}
+
+.footer-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.footer-contacts a {
+    color: #b2bec3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-contacts a:hover {
+    color: #6c5ce7;
+}
+
+/* ============================================================
+   АДАПТИВ
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.3s ease;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-list.active {
+        transform: scaleY(1);
+    }
+
+    .nav-actions {
+        gap: 8px;
+    }
+    
+    .user-greeting {
+        font-size: 0.9rem;
+    }
+
+    .hero-bg {
+        width: 300px;
+        height: 300px;
+        right: -30%;
+    }
+
+    .download-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-box {
+        padding: 32px 20px;
+    }
+    
+    .auth-box h1 {
+        font-size: 1.8rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-contacts {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* Донат адаптив */
+    .donate-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto 40px;
+    }
+    
+    .donate-card-number {
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px;
+    }
+    
+    .donate-card-number span {
+        font-size: 1rem;
+        letter-spacing: 1px;
+        word-break: break-all;
+    }
+    
+    .btn-copy {
+        width: 100%;
+    }
+    
+    .donate-stats {
+        gap: 24px;
+    }
+    
+    .stat-number {
+        font-size: 1.4rem;
+    }
+    
+    .bank-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .qr-placeholder {
+        padding: 16px;
+    }
+
+    .donate-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 24px 16px;
+    }
+
+    .donate-card {
+        padding: 24px 16px;
+    }
+    
+    .donate-footer-info {
+        padding: 24px 16px;
+    }
+}
